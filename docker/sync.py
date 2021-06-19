@@ -32,7 +32,7 @@ r = requests.request('GET', url, timeout=30)
 data = json.loads(r.text)
 
 TEXT = """
-# 更新lxk0301大佬的js脚本，日志为log/git_pull.log
+# 更新js脚本，日志为log/git_pull.log
 11 1,5,9,13,16,20,22 * * * sleep 52 && bash git_pull >> ${JD_DIR}/log/git_pull.log 2>&1
 
 # 删除 RmLogDaysAgo 指定天数以前的旧日志，本行为不记录日志
