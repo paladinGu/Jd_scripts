@@ -47,6 +47,8 @@ jobs:
           git commit -m "Sync_Changes"
           git push -u origin main
   mirror_to_gitee:
+    if: always()
+    needs: sync_changes
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout'
