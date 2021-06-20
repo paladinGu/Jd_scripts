@@ -3,44 +3,13 @@ import requests
 import re
 import os
 
-SCRIPT_FOLDER = f'script'
-CONFIG_FOLDER = f'config'
-
-if os.path.exists(SCRIPT_FOLDER):
-    file_list = os.listdir(SCRIPT_FOLDER)
-    for file in file_list:
-        if os.path.exists(os.path.join(SCRIPT_FOLDER, file)):
-            os.remove(os.path.join(SCRIPT_FOLDER, file))
-
-
-if not os.path.exists(SCRIPT_FOLDER):
-    os.mkdir(SCRIPT_FOLDER)
-
-if os.path.exists(CONFIG_FOLDER):
-    file_list = os.listdir(CONFIG_FOLDER)
-    for file in file_list:
-        if os.path.exists(os.path.join(CONFIG_FOLDER, file)):
-            os.remove(os.path.join(CONFIG_FOLDER, file))
-else:
-    os.mkdir(CONFIG_FOLDER)
-
-
 url = "https://raw.githubusercontent.com/zero205/JD_tencent_scf/main/jd_task.json"
 
 r = requests.request('GET', url, timeout=30)
 # print(r.text)
 data = json.loads(r.text)
 
-TEXT = """
-# 更新js脚本，日志为log/git_pull.log
-11 1,5,9,13,16,20,22 * * * sleep 52 && bash git_pull >> ${JD_DIR}/log/git_pull.log 2>&1
-
-# 删除 RmLogDaysAgo 指定天数以前的旧日志，本行为不记录日志
-57 13 * * * bash rm_log >/dev/null 2>&1
-
-# 导出所有互助码清单，日志在log/export_sharecodes下
-48 5 * * * bash export_sharecodes
-"""
+TEXT = ""
 
 for i in data['list']:
     print(i)
@@ -52,13 +21,13 @@ for i in data['list']:
     urls = re.split('/|; |\*|\n', script_url)
     script_name = urls[-1]
     script = requests.get(script_url, stream=True, verify=False)
-    save_path = os.path.join(SCRIPT_FOLDER, script_name)
+    save_path = os.path.join(script_name)
     print(save_path)
     with open(save_path, "wb") as f:
         f.write(script.content)
     f.close()
-    TEXT = TEXT + "\n# " + i['name'] + "\n" + i['time'] + " bash " + urls[-1][:-3]
+    TEXT = TEXT + "\n# " + i['name'] + "\n" + i['time'] + " node /script/" + urls[-1][:] + " >> /script/log/" + urls[-1][:-3] + ".log 2&1"
 print(TEXT)
-with open('config/crontab.list', "w") as f:
+with open('docker/crontab_list.sh', "w") as f:
     f.write(TEXT)
 f.close()
