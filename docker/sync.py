@@ -58,3 +58,4 @@ for i in data['list']:
 print(TEXT)
 with open('../config/crontab.list', "w") as f:
     f.write(TEXT)
+f.close()

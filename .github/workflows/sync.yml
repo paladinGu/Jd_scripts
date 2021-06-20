@@ -41,6 +41,8 @@ jobs:
           git clone https://${{ secrets.GH_TOKEN }}@github.com/HowieHye/Jd_scripts.git
           cd Jd_scripts
           python docker/sync.py
+          ls config
+          ls script
           git add -A
           git commit -m "Sync_Changes"
           git push -u origin main
