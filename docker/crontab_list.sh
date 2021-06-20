@@ -1,4 +1,4 @@
-# 2021-06-20 12:36:05
+# 2021-06-20 23:22:36
 
 # 京豆变动通知
 0 20 * * * node /scripts/jd_bean_change.js >> /scripts/log/jd_bean_change.log 2&1
@@ -138,5 +138,9 @@
 40 10 * * * node /scripts/jd_djjl.js >> /scripts/log/jd_djjl.log 2&1
 # 京东全民挖现金
 50 0-23/8 * * * node /scripts/jd_wxj.js >> /scripts/log/jd_wxj.log 2&1
+# 省钱大赢家
+30 0,6-23/1 * * * node /scripts/jd_big_winner.js >> /scripts/log/jd_big_winner.log 2&1
+# 京享值PK
+10 0,6-23/4 * * * node /scripts/jd_ddo_pk.js >> /scripts/log/jd_ddo_pk.log 2&1
 # 超级无线组队分京豆
 15 6 * * 2 node /scripts/jd_z_shop_captain.js >> /scripts/log/jd_z_shop_captain.log 2&1
