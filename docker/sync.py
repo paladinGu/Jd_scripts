@@ -3,8 +3,8 @@ import requests
 import re
 import os
 
-SCRIPT_FOLDER = f'../script'
-CONFIG_FOLDER = f'../config'
+SCRIPT_FOLDER = f'script'
+CONFIG_FOLDER = f'config'
 
 if os.path.exists(SCRIPT_FOLDER):
     file_list = os.listdir(SCRIPT_FOLDER)
@@ -51,12 +51,14 @@ for i in data['list']:
     script_url = job['target']
     urls = re.split('/|; |\*|\n', script_url)
     script_name = urls[-1]
-    script = requests.get(script_url, stream=True)
-    with open('../script/'+script_name, "wb") as f:
+    script = requests.get(script_url, stream=True, verify=False)
+    save_path = os.path.join(SCRIPT_FOLDER, script_name)
+    print(save_path)
+    with open(save_path, "wb") as f:
         f.write(script.content)
     f.close()
     TEXT = TEXT + "\n# " + i['name'] + "\n" + i['time'] + " bash " + urls[-1][:-3]
 print(TEXT)
-with open('../config/crontab.list', "w") as f:
+with open('config/crontab.list', "w") as f:
     f.write(TEXT)
 f.close()
