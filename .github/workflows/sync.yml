@@ -56,5 +56,5 @@ jobs:
         with:
           target_repo_url:
             git@gitee.com:howiehye/jdjdjd.git
-        ssh_private_key:
+          ssh_private_key:
             ${{ secrets.GITEE_TOKEN }}
