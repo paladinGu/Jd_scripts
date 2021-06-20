@@ -26,7 +26,7 @@ for i in data['list']:
     with open(save_path, "wb") as f:
         f.write(script.content)
     f.close()
-    TEXT = TEXT + "\n# " + i['name'] + "\n" + i['time'] + " node /script/" + urls[-1][:] + " >> /script/log/" + urls[-1][:-3] + ".log 2&1"
+    TEXT = TEXT + "\n# " + i['name'] + "\n" + i['time'] + " node /scripts/" + urls[-1][:] + " >> /scripts/log/" + urls[-1][:-3] + ".log 2&1"
 print(TEXT)
 with open('docker/crontab_list.sh', "w") as f:
     f.write(TEXT)
