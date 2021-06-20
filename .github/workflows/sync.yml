@@ -8,15 +8,14 @@ on:
   watch:
     types: started
   schedule:
-    - cron: '0,30 0-23/2 * * *'
+    - cron: '5 12,23 * * *'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
+  sync_changes:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -41,9 +40,7 @@ jobs:
           git config --global user.email $GIT_EMAIL
           git clone https://${{ secrets.GH_TOKEN }}@github.com/HowieHye/Jd_scripts.git
           cd Jd_scripts
-          cd docker
-          python sync.py
-          cd ..
+          python docker/sync.py
           git add .
-          git commit -m "Sync"
+          git commit -m "Sync_Changes"
           git push -u origin main

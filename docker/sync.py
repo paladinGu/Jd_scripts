@@ -52,9 +52,9 @@ for i in data['list']:
     urls = re.split('/|; |\*|\n', script_url)
     script_name = urls[-1]
     script = requests.get(script_url, stream=True)
-    with open('script/'+script_name, "wb") as f:
+    with open('../script/'+script_name, "wb") as f:
         f.write(script.content)
     TEXT = TEXT + "\n# " + i['name'] + "\n" + i['time'] + " bash " + urls[-1][:-3]
 print(TEXT)
-with open('config/crontab.list', "w") as f:
+with open('../config/crontab.list', "w") as f:
     f.write(TEXT)
