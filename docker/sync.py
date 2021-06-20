@@ -2,14 +2,16 @@ import json
 import requests
 import re
 import os
+import time
 
 url = "https://raw.githubusercontent.com/zero205/JD_tencent_scf/main/jd_task.json"
 
 r = requests.request('GET', url, timeout=30)
 # print(r.text)
 data = json.loads(r.text)
+time_now = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 
-TEXT = ""
+TEXT = "# " + time_now
 
 for i in data['list']:
     print(i)
