@@ -11,7 +11,7 @@ r = requests.request('GET', url, timeout=30)
 data = json.loads(r.text)
 time_now = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 
-TEXT = "# " + time_now
+TEXT = "# " + time_now + "\n"
 
 for i in data['list']:
     print(i)
