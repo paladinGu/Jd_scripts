@@ -38,7 +38,7 @@ jobs:
         run: |
           git config --global user.name $GIT_NAME
           git config --global user.email $GIT_EMAIL
-          git clone https://${{ secrets.GH_TOKEN }}@github.com/HowieHye/Jd_scripts.git
+          git clone https://${{ secrets.GIT_TOKEN }}@github.com/HowieHye/Jd_scripts.git
           cd Jd_scripts
           python docker/sync.py
           ls config
