@@ -3,8 +3,8 @@ import requests
 import re
 import os
 
-SCRIPT_FOLDER = f'script'
-CONFIG_FOLDER = f'config'
+SCRIPT_FOLDER = f'../script'
+CONFIG_FOLDER = f'../config'
 
 if os.path.exists(SCRIPT_FOLDER):
     file_list = os.listdir(SCRIPT_FOLDER)
