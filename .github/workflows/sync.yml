@@ -46,3 +46,15 @@ jobs:
           git add -A
           git commit -m "Sync_Changes"
           git push -u origin main
+  mirror_to_gitee:
+    runs-on: ubuntu-latest
+      steps:
+        - name: 'Checkout'
+          uses: actions/checkout@v1
+        - name: 'Mirror to gitee'
+          uses: pixta-dev/repository-mirroring-action@v1
+          with:
+            target_repo_url:
+              git@gitee.com:howiehye/jdjdjd.git
+            ssh_private_key:
+              ${{ secrets.GITEE_TOKEN }}
