@@ -1,4 +1,4 @@
-# 2021-06-21 23:23:21
+# 2021-06-22 12:36:56
 
 # 京豆变动通知
 0 20 * * * node /scripts/jd_bean_change.js >> /scripts/log/jd_bean_change.log 2&1
@@ -122,12 +122,6 @@
 20 9,20 * 5,6 * node /scripts/jd_adolf_superbox.js >> /scripts/log/jd_adolf_superbox.log 2&1
 # 金榜创造营
 25 6,22 * * * node /scripts/jd_gold_creator.js >> /scripts/log/jd_gold_creator.log 2&1
-# 京喜领88元红包
-8 10,19 * * * node /scripts/jd_jxlhb.js >> /scripts/log/jd_jxlhb.log 2&1
-# 新潮品牌狂欢
-13 10 * * * node /scripts/jd_mcxhd.js >> /scripts/log/jd_mcxhd.log 2&1
-# 星店长
-26 7,21 * * * node /scripts/jd_star_shop.js >> /scripts/log/jd_star_shop.log 2&1
 # 5G超级盲盒
 0 0,6-23/3 * * * node /scripts/jd_mohe.js >> /scripts/log/jd_mohe.log 2&1
 # 京东试用
@@ -138,5 +132,7 @@
 50 0-23/8 * * * node /scripts/jd_wxj.js >> /scripts/log/jd_wxj.log 2&1
 # 省钱大赢家
 30 0,6-23/1 * * * node /scripts/jd_big_winner.js >> /scripts/log/jd_big_winner.log 2&1
+# ddo京享值PK
+18 0,6-21/6 * * * node /scripts/jd_ddo_pk.js >> /scripts/log/jd_ddo_pk.log 2&1
 # 超级无线组队分京豆
 15 6 * * 2 node /scripts/jd_z_shop_captain.js >> /scripts/log/jd_z_shop_captain.log 2&1
