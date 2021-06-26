@@ -1,4 +1,4 @@
-# 2021-06-25 23:16:11
+# 2021-06-26 12:24:03
 
 # 京豆变动通知
 0 20 * * * node /scripts/jd_bean_change.js >> /scripts/log/jd_bean_change.log 2&1
@@ -134,5 +134,7 @@
 30 0,6-23/1 * * * node /scripts/jd_big_winner.js >> /scripts/log/jd_big_winner.log 2&1
 # ddo京享值PK
 18 0,6-21/6 * * * node /scripts/jd_ddo_pk.js >> /scripts/log/jd_ddo_pk.log 2&1
+# 东东乐园
+18 7 * * * node /scripts/jd_ddly.js >> /scripts/log/jd_ddly.log 2&1
 # 超级无线组队分京豆
 15 6 * * 2 node /scripts/jd_z_shop_captain.js >> /scripts/log/jd_z_shop_captain.log 2&1
