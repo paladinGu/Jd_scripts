@@ -1,4 +1,4 @@
-# 2021-06-27 23:16:12
+# 2021-06-28 12:25:32
 
 # 京豆变动通知
 0 20 * * * node /scripts/jd_bean_change.js >> /scripts/log/jd_bean_change.log 2&1
