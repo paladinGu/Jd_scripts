@@ -1,4 +1,4 @@
-# 2021-07-03 12:23:57
+# 2021-07-03 23:15:18
 
 # 京豆变动通知
 0 20 * * * node /scripts/jd_bean_change.js >> /scripts/log/jd_bean_change.log 2&1
@@ -124,12 +124,8 @@
 25 6,22 * * * node /scripts/jd_gold_creator.js >> /scripts/log/jd_gold_creator.log 2&1
 # 5G超级盲盒
 0 0,6-23/3 * * * node /scripts/jd_mohe.js >> /scripts/log/jd_mohe.log 2&1
-# 京东试用
-40 8 * * * node /scripts/jd_try.js >> /scripts/log/jd_try.log 2&1
 # 京东电竞经理
 40 10 * * * node /scripts/jd_djjl.js >> /scripts/log/jd_djjl.log 2&1
-# 京东全民挖现金
-50 0-23/8 * * * node /scripts/jd_wxj.js >> /scripts/log/jd_wxj.log 2&1
 # 东东乐园
 18 7 * * * node /scripts/jd_ddly.js >> /scripts/log/jd_ddly.log 2&1
 # 超级无线组队分京豆
